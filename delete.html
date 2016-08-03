@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>DELETE-CARES FOR YOU</title>
+<link href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+     <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"> </script>
+<script>
+
+
+$(document).ready(function() {
+	
+
+
+//==============Delete review===============
+$("#delete").on('click',function() {
+	     var username=$("#deleteusername").val();
+    var password=$("#deletepassword").val();
+
+    var myData = 'username='+username+'&password='+password;
+    //var review_id="reviewid";
+    //var myData = 'review_id='+review_id;
+              
+        $.ajax({
+          url:'delete.php',
+          type:"DELETE",
+          dataType : 'text',
+          data:myData,
+        success: function(msg, status){
+            alert(msg);
+           window.location.replace("home.html");
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+});
+
+
+
+
+});
+
+</script>
+</head> 
+<body>
+<div data-role="page" id="page">
+	<div data-role="header" data-add-back-btn="true" data-back-btn-text="Back">
+     <a data-rel="back">Back</a>
+		<h1>Delete Account</h1>
+	</div>
+<p><br>
+<div data-role="content">
+  Username:
+  <input type="text" id="deleteusername"><br>
+  Password:<input type="text" id="deletepassword"><br>
+</p>
+<button id="delete">Delete now</button>
+</div>
+</body>
+</html>

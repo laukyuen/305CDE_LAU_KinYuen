@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^/?signup$  register.php
+RewriteRule ^/?signin$  login.php
+RewriteRule ^/?updateinfo$  update.php
+RewriteRule ^/?disactivate$  delete.php
